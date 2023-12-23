@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/bomb.png</file>
+        <file>img/bombPowerUp.png</file>
+        <file>img/breakable_block.png</file>
+        <file>img/explosionPowerUp.png</file>
+        <file>img/field.png</file>
+        <file>img/fire.png</file>
+        <file>img/player_front.png</file>
+        <file>img/unbreakable_block.png</file>
+    </qresource>
+</RCC>
