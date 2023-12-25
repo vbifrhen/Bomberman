@@ -12,19 +12,21 @@ class Player : public QObject, public QGraphicsPixmapItem
 public:
     Player(int playerNumber);
 
-    bool hasBomb() const;
-    void setHasBomb(bool value);
+    int getPlayerNumber() const;
+    int getExplosionRadius() const;
 
     bool canPlaceBomb() const;
-    void setCanPlaceBomb(bool value);
+    void increaseBombCount();
+    void decreaseBombCount();
 
-    int getPlayerNumber() const;  // Add this function declaration
+    void activateBombPowerUp();
+    void activateExplosionPowerUp();
 
     ~Player();
 
 private:
-    bool hasBomb_;
-    bool canPlaceBomb_;
+    int bombCount;
+    int explosionRadius;
     int playerNumber;
 };
 

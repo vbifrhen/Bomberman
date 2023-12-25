@@ -2,10 +2,11 @@
 
 #include "player.h"
 
-Player::Player(int playerNumber) : playerNumber(playerNumber), hasBomb_(false), canPlaceBomb_(true)
+Player::Player(int playerNumber) : playerNumber(playerNumber), bombCount(1), explosionRadius(1)
 {
     setPixmap(QPixmap(":/img/player_front.png"));
     setFlag(QGraphicsItem::ItemIsFocusable);
+    setZValue(1);
 }
 
 int Player::getPlayerNumber() const
@@ -13,24 +14,35 @@ int Player::getPlayerNumber() const
     return playerNumber;
 }
 
-bool Player::hasBomb() const
+int Player::getExplosionRadius() const
 {
-    return hasBomb_;
-}
-
-void Player::setHasBomb(bool value)
-{
-    hasBomb_ = value;
+    return explosionRadius;
 }
 
 bool Player::canPlaceBomb() const
 {
-    return canPlaceBomb_;
+    return bombCount > 0;  // Проверка, что у игрока есть доступные бомбы
 }
 
-void Player::setCanPlaceBomb(bool value)
+
+void Player::increaseBombCount()
 {
-    canPlaceBomb_ = value;
+    bombCount++;
+}
+
+void Player::decreaseBombCount()
+{
+    bombCount = qMax(0, bombCount - 1);
+}
+
+void Player::activateBombPowerUp()
+{
+    increaseBombCount();  // Увеличение количества бомб
+}
+
+void Player::activateExplosionPowerUp()
+{
+    explosionRadius++;
 }
 
 Player::~Player() {}

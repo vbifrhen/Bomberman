@@ -48,6 +48,7 @@ private:
     int colNow = 1;
     int rowNow = 1;
     QTimer* fillTimer;
+    void checkPowerUpCollision(Player *player);
 
 
 };

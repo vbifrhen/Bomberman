@@ -38,6 +38,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         bomb.h bomb.cpp
         explosion.h explosion.cpp
         gameoveroverlay.h gameoveroverlay.cpp
+        powerup.h powerup.cpp
 
 
     )
